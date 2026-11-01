@@ -11,7 +11,7 @@ st.title("🎬 UN ESTUDIO - Panel Multi-Agente AI")
 # --- BARRA LATERAL: API KEYS ---
 st.sidebar.header("⚙️ Configuración de API Keys")
 gemini_key = st.sidebar.text_input("Gemini API Key", type="password", help="Obtenla en Google AI Studio")
-serper_key = st.sidebar.text_input("Serper API Key", type="password", help="Obtenla en serper.dev (opcional para el Agente 2)")
+serper_key = st.sidebar.text_input("Serper API Key", type="password", help="Obtenla en serper.dev (necesaria para el Agente 1)")
 
 # Asignar llaves al entorno de sistema de forma inmediata si fueron ingresadas
 if gemini_key:
@@ -30,11 +30,11 @@ opcion = st.sidebar.radio(
     ]
 )
 
-# Inicializar modelo de LLM para CrewAI (si hay Gemini Key)
+# Inicializar modelo de LLM para CrewAI usando el nombre estándar sin prefijo
 llm = None
 if gemini_key:
     llm = LLM(
-        model="gemini/gemini-1.5-flash",
+        model="gemini-1.5-flash",
         api_key=gemini_key
     )
 
