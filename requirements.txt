@@ -3,3 +3,5 @@ crewai
 crewai-tools
 python-dotenv
 google-generativeai
+google-genai>=2.20.0,<3.0.0
+tiktoken>=0.8.0,<0.13
